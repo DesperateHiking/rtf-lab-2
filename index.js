@@ -23,10 +23,8 @@ function customBind (func, context, ...args) {
 function sum (x) {
     if (x === undefined) return 0;
 
-    return function (nextNum) {
-        if (nextNum === undefined) return x;
-
-        return sum(x + nextNum);
+    return (nextNum) => {
+        return nextNum === undefined ? x : sum(x + nextNum);
     };
 }
 
